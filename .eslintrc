@@ -1,0 +1,58 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 100
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "react/no-unescaped-entities": 0,
+    "react/forbid-prop-types": 0,
+    "no-param-reassign": 0,
+    "consistent-return": 0,
+    "radix": 0,
+    "react/no-unused-prop-types": 0,
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "globals": {
+    "alert": false,
+    "describe": false,
+    "expect": false,
+    "device": false,
+    "beforeEach": false,
+    "element": false,
+    "by": false,
+    "it": false,
+    "before": false,
+    "after": false,
+    "__DEV__": false,
+    "test": false,
+    "afterEach": false,
+    "document": false,
+    "location": false,
+    "window": false
+  }
+}
