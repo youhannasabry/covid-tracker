@@ -4,10 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import HomeComponent from './HomeComponent';
 import * as HomeActions from './HomeRedux';
 import styles from './HomeStyle';
-import { userSelector } from '../../redux/selectors';
 
 const mapStateToProps = state => ({
-  user: userSelector(state),
   loading: state.home.loading,
   error: state.home.error,
 });

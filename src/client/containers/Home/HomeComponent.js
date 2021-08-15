@@ -5,11 +5,10 @@ import Loading from '../../components/common/Loading';
 
 class Home extends React.Component {
   componentDidMount() {
-    const { loadStatistics } = this.props;
   }
 
   render() {
-    const { classes, loading, user } = this.props;
+    const { classes, loading } = this.props;
 
     if (loading) {
       return <Loading />;
@@ -17,8 +16,7 @@ class Home extends React.Component {
 
     return (
       <div className={classes.root}>
-        <PageTitle title="COVID-19 Tracker" />
-
+  
       </div>
     );
   }

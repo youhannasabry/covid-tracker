@@ -13,8 +13,5 @@ export default theme => ({
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing.unit * 3,
     },
-  },
-  title: {
-    marginBottom: theme.spacing.unit * 3,
-  },
+  }
 });
