@@ -17,6 +17,8 @@ import { Formik } from 'formik';
 import Input from '../../FormikComponents/Input';
 import SubmitButton from '../../FormikComponents/SubmitButton';
 import Select from '../../FormikComponents/Select';
+import config from '../../../config';
+
 const axios = require('axios')
 
 class Appbar extends React.Component {
@@ -50,6 +52,7 @@ class Appbar extends React.Component {
       this.countryOptions.push({ value: country.id, label: country.name });
     }
     this.getGeoInfo();
+    console.log(config.automaticCountryDetection)
   }
 
   getGeoInfo = () => {
@@ -70,7 +73,8 @@ class Appbar extends React.Component {
   };
 
   logTemperatureSubmit = values => {
-    // values.country = this.state.countryCode
+    if (config.automaticCountryDetection)
+      values.country = this.state.countryCode;
     axios.post('http://localhost:4000/api/public/log', {
       name: values.name,
       phone: values.phone,
