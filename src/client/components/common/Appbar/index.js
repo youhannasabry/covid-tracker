@@ -27,12 +27,33 @@ class Appbar extends React.Component {
     };
   }
 
+  countries = [
+    { id: "cn", name: "China" },
+    { id: "in", name: "India" },
+    { id: "us", name: "United States" },
+    { id: "id", name: "Indonesia" },
+    { id: "pk", name: "Pakistan" },
+    { id: "br", name: "Brazil" },
+    { id: "ng", name: "Nigeria" },
+    { id: "bd", name: "Bangladesh" },
+    { id: "ru", name: "Russia" },
+    { id: "mx", name: "Mexico" }
+  ];
+
+  countryOptions = [];
+
+
+  componentDidMount() {
+    for (let country of this.countries) {
+      this.countryOptions.push({ value: country.id, label: country.name });
+    }
+  }
+
   handleToggleLogTemprature = () => {
     this.setState(prevState => ({ open: !prevState.open }));
   };
 
   logTemperatureSubmit = values => {
-    console.log(values)
     axios.post('http://localhost:4000/api/public/log', {
       name: values.name,
       phone: values.phone,
@@ -42,7 +63,12 @@ class Appbar extends React.Component {
     })
       .then(function (response) {
         console.log(response);
+        alert(response.data && response.data.response);
       })
+      .catch(function (err) {
+        alert(err);
+        console.log(err)
+      });
   }
 
   initialValues = {
@@ -52,8 +78,6 @@ class Appbar extends React.Component {
     country: '',
     temperature: '',
   };
-
-  countryOptions = [];
 
   renderForm = formikProps => {
     const width = "299px";
@@ -72,10 +96,6 @@ class Appbar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    let countries = [];
-    for (let country of countries) {
-      this.countryOptions.push({ value: country.id, label: country.name });
-    }
 
     return (
       <div className={classes.root}>

@@ -13,6 +13,7 @@ import config from './config/config';
 require('./config/database')(config);
 const socketIo = require("socket.io");
 const http = require("http");
+const { Log } = require('./models');
 
 //Define global models here
 // global.models = require('elprices-models')({
@@ -71,8 +72,9 @@ io.on("connection", (socket) => {
   });
 });
 
-const getApiAndEmit = socket => {
-  const response = new Date();
+const getApiAndEmit = async socket => {
+  let response = await Log.find({ temperature: { $gt: 37 } }).select('country').lean();
+
   // Emitting a new message. Will be consumed by the client
   socket.emit("FromAPI", response);
 };
