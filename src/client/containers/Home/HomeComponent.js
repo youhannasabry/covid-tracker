@@ -1,30 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import PageTitle from '../../components/common/PageTitle';
-import Loading from '../../components/common/Loading';
+import React, { useState, useEffect } from "react";
+import socketIOClient from "socket.io-client";
+import useStyles from "./HomeStyle";
 
-class Home extends React.Component {
-  componentDidMount() {
-  }
+const ENDPOINT = "http://localhost:4000";
 
-  render() {
-    const { classes, loading } = this.props;
+const WorldMap = require('react-svg-worldmap').WorldMap;
 
-    if (loading) {
-      return <Loading />;
-    }
 
-    return (
-      <div className={classes.root}>
-  
-      </div>
-    );
-  }
+function Home() {
+  const [response, setResponse] = useState("");
+  const classes = useStyles();
+
+  useEffect(() => {
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+      setResponse(data);
+    });
+    return () => socket.disconnect();
+  }, []);
+
+  return (
+      <WorldMap color="green" frame="true" size="xxl" data={[]} />
+  );
 }
-
-Home.propTypes = {
-  classes: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
-};
-
 export default Home;

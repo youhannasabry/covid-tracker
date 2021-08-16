@@ -1,5 +1,4 @@
 import Immutable from 'seamless-immutable';
-import get from 'lodash/get';
 import storage from '../../utils/storage';
 
 /* ------------- Actions ------------- */

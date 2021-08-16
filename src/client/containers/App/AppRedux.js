@@ -1,8 +1,4 @@
 import Immutable from 'seamless-immutable';
-import get from 'lodash/get';
-import * as AuthActions from '../Auth/AuthRedux';
-import storage from '../../utils/storage';
-import { DEFAULT_LOCALE } from '../../constants';
 
 /* ------------- Actions ------------- */
 const APP_STARTED_REQUEST = 'covidTracker/App/APP_STARTED_REQUEST';
@@ -16,6 +12,7 @@ const initialState = Immutable({
   initialized: false,
   loading: true,
   appError: '',
+  open: false
 });
 
 /* ------------- Reducer ------------- */
@@ -70,7 +67,6 @@ export function appStarted() {
   return async dispatch => {
     try {
       dispatch(appStartedRequest());
-      await dispatch(AuthActions.loadToken());
       return dispatch(appStartedSuccess());
     } catch (error) {
       dispatch(appStartedError(error));

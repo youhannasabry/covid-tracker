@@ -4,5 +4,5 @@ const __STAGING__ = process.env.NODE_ENV === 'staging';
 
 export default {
   staticUrl: '',
-  baseUrl: __DEV__ ? 'http://localhost:4000/api' : 'https://api',
+  baseUrl: __DEV__ ? 'http://localhost:4000/api' : __STAGING__? 'https://api': 'https://api',
 };

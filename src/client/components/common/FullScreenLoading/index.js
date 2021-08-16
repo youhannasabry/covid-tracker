@@ -9,10 +9,10 @@ import styles from './style';
 
 const Loading = ({ classes }) => (
   <div className={classes.root}>
-    <LinearProgress color="#000" />
+    <LinearProgress color="primary" />
     <div className={classes.body}>
       {/* <img src={Logo} height={80} alt="logo" /> */}
-      <CircularProgress color="#000" style={{ marginTop: 20 }} />
+      <CircularProgress color="primary" style={{ marginTop: 20 }} />
     </div>
   </div>
 );

@@ -1,5 +1,4 @@
 import Immutable from 'seamless-immutable';
-import { errorSnackBarAction } from '../../lib/snackbar';
 
 /* ------------- Actions ------------- */
 
