@@ -14,3 +14,8 @@ The page will reload if you make edits.<br>
 
 You will need to create an env.json file in the server/config directory.<br>
 You can replicate the env.example.json and rename it to run the project right away.
+
+## Automatic Location
+
+To see better the UI changes of the map and the project I added the ability to log the temperature for any country.<br>
+If you'd like the location to be detected automatically, change automaticCountryDetection to true in client/config.js.
