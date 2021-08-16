@@ -12,7 +12,7 @@ export default (theme, drawerWidth = 300) => ({
     marginLeft: "72%"
   },
   appBar: {
-    backgroundColor: "#344955",
+    backgroundColor: "primary",
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

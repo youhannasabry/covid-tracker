@@ -41,14 +41,14 @@ const InputComponent = props => {
         </Grid>
       ) */}
 
-      <Grid justify="center" md={inputWidth} xs={12} item>
+      <Grid md={inputWidth} xs={12} item>
         <FormControl
           required={required}
           variant="filled"
           fullWidth
           error={touched[name] && errors[name]}
         >
-          <InputLabel htmlFor={`input-${name}`}>{label}</InputLabel>
+          <InputLabel htmlFor={`input-${name}`} color="primary">{label}</InputLabel>
           <FilledInput
             id={`input-${name}`}
             name={name}
@@ -59,8 +59,10 @@ const InputComponent = props => {
             onBlur={handleBlur}
             className={classes.input}
             aria-describedby="input-error-text"
-            {...props}
+            // {...props}
             required={required}
+            color="primary"
+            style={{width: "299px"}}
           />
 
           <FormHelperText className={classes.helperText} id="input-error-text">

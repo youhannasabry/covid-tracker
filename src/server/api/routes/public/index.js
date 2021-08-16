@@ -6,5 +6,6 @@ import controller from './controller';
 const publicRouter = express.Router();
 
 publicRouter.get('/', controller.load);
+publicRouter.post('/log', controller.log);
 
 export default publicRouter;

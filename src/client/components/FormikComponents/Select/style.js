@@ -8,9 +8,6 @@ export default theme => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  input: {
-    marginBottom: 0,
-  },
   helperText: {
     marginLeft: 0,
   },

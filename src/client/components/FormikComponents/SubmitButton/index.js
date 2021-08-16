@@ -10,9 +10,9 @@ const SubmitButton = ({ classes, label, ...props }) => (
       type="submit"
       variant="contained"
       size="large"
-      color="primary"
       className={classes.button}
       {...props}
+      color="primary"
     >
       {label}
     </Button>
