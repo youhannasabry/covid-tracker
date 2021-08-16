@@ -19,3 +19,7 @@ You can replicate the env.example.json and rename it to run the project right aw
 
 To see better the UI changes of the map and the project I added the ability to log the temperature for any country.<br>
 If you'd like the location to be detected automatically, change automaticCountryDetection to true in client/config.js.
+
+## Displaying Patients
+
+Upon clicking on a country a list of patients will be rendered.
