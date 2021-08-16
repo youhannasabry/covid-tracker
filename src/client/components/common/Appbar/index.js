@@ -23,7 +23,9 @@ class Appbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      countryName: '',
+      countryCode: ''
     };
   }
 
@@ -47,13 +49,28 @@ class Appbar extends React.Component {
     for (let country of this.countries) {
       this.countryOptions.push({ value: country.id, label: country.name });
     }
+    this.getGeoInfo();
   }
+
+  getGeoInfo = () => {
+    axios.get('https://ipapi.co/json/').then((response) => {
+      let data = response.data;
+      console.log(data)
+      this.setState({
+        countryName: data.country_name,
+        countryCode: data.country_code
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
 
   handleToggleLogTemprature = () => {
     this.setState(prevState => ({ open: !prevState.open }));
   };
 
   logTemperatureSubmit = values => {
+    // values.country = this.state.countryCode
     axios.post('http://localhost:4000/api/public/log', {
       name: values.name,
       phone: values.phone,
