@@ -73,7 +73,7 @@ io.on("connection", (socket) => {
 });
 
 const getApiAndEmit = async socket => {
-  let response = await Log.find({ temperature: { $gt: 37 } }).select('country').lean();
+  let response = await Log.find({ temperature: { $gt: 37 } }).lean();
 
   // Emitting a new message. Will be consumed by the client
   socket.emit("FromAPI", response);
