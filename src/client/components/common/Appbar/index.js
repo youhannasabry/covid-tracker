@@ -107,7 +107,7 @@ class Appbar extends React.Component {
         <Input style={{ width }} fullWidth label="Name" name="name" required formikProps={formikProps} />
         <Input style={{ width }} fullWidth label="Phone" name="phone" required formikProps={formikProps} />
         <Input style={{ width }} fullWidth label="Email" name="email" required formikProps={formikProps} />
-        <Select fullWidth label="Country" name="country" required options={this.countryOptions} formikProps={formikProps} />
+        {!config.automaticCountryDetection && <Select fullWidth label="Country" name="country" required options={this.countryOptions} formikProps={formikProps} />}
         <Input style={{ width }} fullWidth label="Temperature" name="temperature" required formikProps={formikProps} />
         <br />
         <SubmitButton type="submit" label="Submit" />
